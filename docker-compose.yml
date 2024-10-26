@@ -1,0 +1,12 @@
+services:
+  plaza-ms:
+    build:
+      context: ./plaza-ms
+      dockerfile: dockerfile
+    volumes:
+      - ./src:/app/src:cached
+    environment:
+      - PORT=3000
+    ports:
+      - 4000:3000
+    command: npm run start:dev

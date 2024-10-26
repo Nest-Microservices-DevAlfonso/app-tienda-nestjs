@@ -13,7 +13,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
-    }),
+    })
   );
   await app.listen(envs.PORT);
 
