@@ -18,9 +18,9 @@ export class WarehouseService extends PrismaClient implements OnModuleInit {
 
   private async findIngredient(ingredientName:string){
     try{
-      const ingredient = await this.ingredient.findUnique({
+      const ingredient = await this.warehouse.findUnique({
         where: {
-          name: ingredientName,
+          ingredientName,
         }
       })
       
@@ -28,9 +28,9 @@ export class WarehouseService extends PrismaClient implements OnModuleInit {
         throw new NotFoundException(`ingredient not found`)
       }
 
-      const { id, name, quantity } = ingredient
+      const {  ingredientName:name, quantity } = ingredient
       const nameEnum = IngredientName[name as keyof typeof IngredientName];
-      return new IngredientEntity(id, nameEnum , quantity)
+      return new IngredientEntity( nameEnum , quantity)
     }catch(error) {
       console.error(error)
     }

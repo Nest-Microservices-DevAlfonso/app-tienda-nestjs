@@ -28,7 +28,7 @@ datasource db {
 
 
 model warehouse {
-  IngredientName    String   @id      @unique //IngredientName
+  ingredientName    String   @id      @unique //IngredientName
   quantity          Int
   
   createdAt         DateTime          @default(now())

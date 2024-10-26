@@ -18,131 +18,131 @@ async function Seeder() {
   promisesArray.push([
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'tomato',
+        ingredientName: 'tomato',
       },
       update: {
-        IngredientName: 'tomato',
+        ingredientName: 'tomato',
         quantity: 5,
       },
       create: {
-        IngredientName: 'tomato',
+        ingredientName: 'tomato',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'potato',
+        ingredientName: 'potato',
       },
       update: {
-        IngredientName: 'potato',
+        ingredientName: 'potato',
         quantity: 5,
       },
       create: {
-        IngredientName: 'potato',
+        ingredientName: 'potato',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'lemon',
+        ingredientName: 'lemon',
       },
       update: {
-        IngredientName: 'lemon',
+        ingredientName: 'lemon',
         quantity: 5,
       },
       create: {
-        IngredientName: 'lemon',
+        ingredientName: 'lemon',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'rice',
+        ingredientName: 'rice',
       },
       update: {
-        IngredientName: 'rice',
+        ingredientName: 'rice',
         quantity: 5,
       },
       create: {
-        IngredientName: 'rice',
+        ingredientName: 'rice',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'ketchup',
+        ingredientName: 'ketchup',
       },
       update: {
-        IngredientName: 'ketchup',
+        ingredientName: 'ketchup',
         quantity: 5,
       },
       create: {
-        IngredientName: 'ketchup',
+        ingredientName: 'ketchup',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'lettuce',
+        ingredientName: 'lettuce',
       },
       update: {
-        IngredientName: 'lettuce',
+        ingredientName: 'lettuce',
         quantity: 5,
       },
       create: {
-        IngredientName: 'lettuce',
+        ingredientName: 'lettuce',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'onion',
+        ingredientName: 'onion',
       },
       update: {
-        IngredientName: 'onion',
+        ingredientName: 'onion',
         quantity: 5,
       },
       create: {
-        IngredientName: 'onion',
+        ingredientName: 'onion',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'cheese',
+        ingredientName: 'cheese',
       },
       update: {
-        IngredientName: 'cheese',
+        ingredientName: 'cheese',
         quantity: 5,
       },
       create: {
-        IngredientName: 'cheese',
+        ingredientName: 'cheese',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'meat',
+        ingredientName: 'meat',
       },
       update: {
-        IngredientName: 'meat',
+        ingredientName: 'meat',
         quantity: 5,
       },
       create: {
-        IngredientName: 'meat',
+        ingredientName: 'meat',
         quantity: 5,
       },
     }),
     prisma.warehouse.upsert({
       where: {
-        IngredientName: 'chicken',
+        ingredientName: 'chicken',
       },
       update: {
-        IngredientName: 'chicken',
+        ingredientName: 'chicken',
         quantity: 5,
       },
       create: {
-        IngredientName: 'chicken',
+        ingredientName: 'chicken',
         quantity: 5,
       },
     }),

@@ -5,8 +5,7 @@ const prisma = new PrismaClient();
 
 export class IngredientEntity {
   constructor(
-    private id: string,
-    private name: IngredientName,
+    private ingredientName: IngredientName,
     private quantity: number    
   ){}
 
@@ -18,8 +17,8 @@ export class IngredientEntity {
       }
 
       this.quantity= newQuantity
-      return await prisma.ingredient.update({
-        where: { id:this.id },
+      return await prisma.warehouse.update({
+        where: { ingredientName: this.ingredientName },
         data: {
           quantity: newQuantity
         }
@@ -33,9 +32,8 @@ export class IngredientEntity {
 
   toApiJSON(){
     return {
-      name: this.name,
+      IngredientName: this.ingredientName,
       quantity: this.getQuantity(),
-      id: this.id
     }
   }
   
