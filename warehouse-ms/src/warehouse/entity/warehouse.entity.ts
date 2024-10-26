@@ -3,7 +3,7 @@ import { IngredientName } from '../enum/ingredients-name.enum';
 import { InternalServerErrorException } from '@nestjs/common';
 const prisma = new PrismaClient();
 
-export class IngredientEntity {
+export class WarehouseEntity {
   constructor(
     private ingredientName: IngredientName,
     private quantity: number    

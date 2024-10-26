@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 import { RetrieveIngredientsDto } from './dto';
-import { IngredientEntity } from './entity/ingredient.entity';
+import { WarehouseEntity } from './entity/warehouse.entity';
 import { IngredientName } from './enum/ingredients-name.enum';
 import envs from 'src/config/envs';
 import { ClientProxy } from '@nestjs/microservices';
@@ -30,7 +30,7 @@ export class WarehouseService extends PrismaClient implements OnModuleInit {
 
       const {  ingredientName:name, quantity } = ingredient
       const nameEnum = IngredientName[name as keyof typeof IngredientName];
-      return new IngredientEntity( nameEnum , quantity)
+      return new WarehouseEntity( nameEnum , quantity)
     }catch(error) {
       console.error(error)
     }
