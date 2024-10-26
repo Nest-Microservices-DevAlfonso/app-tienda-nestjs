@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// enum IngredientName {
+// tomato
+// lemon
+// potato
+// rice
+// ketchup
+// lettuce
+// onion
+// cheese
+// meat
+// chicken
+// } 
+
+// enum OrderStatus {
+// PENDING
+// IN PROCESS
+// COMPLETED
+// } 
+
+model Ingredient {
+  id         String         @id     @default(uuid())
+  name       String         @unique //IngredientName
+  quantity   Int
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([name])
+}
+
+model OrderPurchase {
+  id               String         @id     @default(uuid())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  OrderPurchaseDetail OrderPurchaseDetail[]
+}
+
+
+model OrderPurchaseDetail {
+  id                String         @id     @default(uuid())
+  ingredient        String         
+  quantity          Int 
+  orderPurchaseid   String 
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@index([orderPurchaseid])
+  orderPurchase   OrderPurchase   @relation(fields: [orderPurchaseid], references: [id])
+
+
+}
