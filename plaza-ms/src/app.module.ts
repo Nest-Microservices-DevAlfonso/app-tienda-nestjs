@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { FarmersMarketModule } from './farmers-market/farmers-market.module';
 
 @Module({
-  imports: [],
+  imports: [FarmersMarketModule],
   controllers: [],
   providers: [],
 })
