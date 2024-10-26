@@ -39,7 +39,7 @@ export class WarehouseService extends PrismaClient implements OnModuleInit {
   
   async retrieveIngredients({ ingredientName, quantity}: RetrieveIngredientsDto){
     const ingredient = await this.findIngredient(ingredientName);
-
+    
     if ( ingredient.getQuantity() - quantity < 0 ) {
       await this.natsClient.emit('orderPurchane.create', { ingredientName, quantity })
     }
@@ -48,5 +48,7 @@ export class WarehouseService extends PrismaClient implements OnModuleInit {
     
     return ingredient.toApiJSON()
   }
+
+
 
 }

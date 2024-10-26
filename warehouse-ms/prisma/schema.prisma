@@ -26,43 +26,65 @@ datasource db {
 // chicken
 // } 
 
-// enum OrderStatus {
-// PENDING
-// IN PROCESS
-// COMPLETED
-// } 
 
-model Ingredient {
-  id         String         @id     @default(uuid())
-  name       String         @unique //IngredientName
-  quantity   Int
+model warehouse {
+  IngredientName    String   @id      @unique //IngredientName
+  quantity          Int
+  
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-
-  @@index([name])
 }
 
-model OrderPurchase {
-  id               String         @id     @default(uuid())
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+model Order {
+  id                String    @id     @default(uuid())
+  orderkitchenId    String
+  orderStatus       String
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
-  OrderPurchaseDetail OrderPurchaseDetail[]
+  orderDetail OrderDetail[]
+  @@index([orderStatus])
 }
 
-
-model OrderPurchaseDetail {
-  id                String         @id     @default(uuid())
+model OrderDetail {
+  id                String    @id     @default(uuid())
   ingredient        String         
   quantity          Int 
-  orderPurchaseid   String 
+  orderId           String 
 
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
-  @@index([orderPurchaseid])
-  orderPurchase   OrderPurchase   @relation(fields: [orderPurchaseid], references: [id])
-
-
+  @@index([orderId])
+  order   Order   @relation(fields: [orderId], references: [id])
 }
+
+
+
+
+
+
+// model PurchaseOrder {
+//   id               String         @id     @default(uuid())
+//   orderkitchenId   String
+//   orderStatus      String
+//   createdAt   DateTime      @default(now())
+//   updatedAt   DateTime      @updatedAt
+
+//   purchaseOrderDetail PurchaseOrderDetail[]
+// }
+
+
+// model PurchaseOrderDetail {
+//   id                String         @id     @default(uuid())
+//   ingredient        String         
+//   quantity          Int 
+//   orderPurchaseid   String 
+
+//   createdAt       DateTime        @default(now())
+//   updatedAt       DateTime        @updatedAt
+
+//   @@index([orderPurchaseid])
+//   purchaseOrder   PurchaseOrder   @relation(fields: [orderPurchaseid], references: [id])
+// }

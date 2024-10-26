@@ -1,4 +1,4 @@
-export type IngredientNames = IngredientName
+export type IngredientNames = IngredientNames
 // TOMATO = "tomato",
 // LEMON ="lemon",
 // POTATO ="potato",
